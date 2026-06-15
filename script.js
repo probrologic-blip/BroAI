@@ -1,8 +1,6 @@
-function sendMsg() {
-  let input = document.getElementById("input");
-  let text = input.value;
-
-  if(text === "") return;
+function sendMsg(){
+  alert("Button working!");
+}
 
   let chatBox = document.getElementById("chatBox");
 
