@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BroAI - Chat Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>BroAI</h2>
+
+    <button onclick="newChat()">+ New Chat</button>
+
+    <div class="history">
+      <p>Welcome Chat</p>
+    </div>
+
+    <div class="bottom">
+      <p>User</p>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="chat" id="chatBox">
+      <div class="msg bot">Hi 👋 I am BroAI, how can I help you?</div>
+    </div>
+
+    <div class="inputBox">
+      <input id="input" type="text" placeholder="Message BroAI...">
+      <button onclick="sendMsg()">Send</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
