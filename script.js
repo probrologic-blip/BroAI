@@ -1,37 +1,14 @@
-function sendMsg(){
-  alert("Button working!");
-}
-
-  let chatBox = document.getElementById("chatBox");
-
-  // USER MSG
-  let userMsg = document.createElement("div");
-  userMsg.className = "msg user";
-  userMsg.innerText = text;
-  chatBox.appendChild(userMsg);
-
-  // BOT REPLY (simple demo AI)
-  let botMsg = document.createElement("div");
-  botMsg.className = "msg bot";
-
-  setTimeout(() => {
-    botMsg.innerText = "BroAI: I received -> " + text;
-    chatBox.appendChild(botMsg);
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }, 500);
-
-  input.value = "";
-}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
-const API_KEY = " ";
+const API_KEY = "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";
 
 async function sendMsg() {
   let input = document.getElementById("input");
-  let text = input.value;
+  let text = input.value.trim();
 
-  if (!text) return;
+  if (text === "") return;
 
   let chatBox = document.getElementById("chatBox");
 
+  // USER MESSAGE
   let userMsg = document.createElement("div");
   userMsg.className = "msg user";
   userMsg.innerText = text;
@@ -39,24 +16,47 @@ async function sendMsg() {
 
   input.value = "";
 
+  // BOT MESSAGE
   let botMsg = document.createElement("div");
   botMsg.className = "msg bot";
   botMsg.innerText = "Thinking...";
   chatBox.appendChild(botMsg);
 
-  let res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Authorization": "Bearer " + API_KEY,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      model: "openai/gpt-3.5-turbo",
-      messages: [{ role: "user", content: text }]
-    })
-  });
+  chatBox.scrollTop = chatBox.scrollHeight;
 
-  let data = await res.json();
+  try {
+    let res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + API_KEY,
+        "Content-Type": "application/json",
+        "HTTP-Referer": window.location.href,
+        "X-Title": "BroAI"
+      },
+      body: JSON.stringify({
+        model: "meta-llama/llama-3.1-8b-instruct",
+        messages: [
+          { role: "user", content: text }
+        ]
+      })
+    });
 
-  botMsg.innerText = data.choices[0].message.content;
+    let data = await res.json();
+
+    console.log(data);
+
+    if (data.error) {
+      botMsg.innerText = "Error: " + data.error.message;
+    } else {
+      botMsg.innerText = data.choices[0].message.content;
+    }
+
+  } catch (err) {
+    botMsg.innerText = "Network error. Check API key or internet.";
+  }
+}
+
+function newChat() {
+  document.getElementById("chatBox").innerHTML =
+    '<div class="msg bot">New chat started 🚀</div>';
 }
