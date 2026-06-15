@@ -1,4 +1,4 @@
-const API_KEY = "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",
+const API_KEY = "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";
 async function sendMsg() {
   let input = document.getElementById("input");
   let text = input.value.trim();
