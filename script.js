@@ -27,14 +27,14 @@ async function sendMsg() {
   try {
     let res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
-      headers: {
-        "Authorization": "Bearer " + API_KEY,
-        "Content-Type": "application/json",
-        "HTTP-Referer": window.location.href,
-        "X-Title": "BroAI"
-      },
+    headers: {
+  "Authorization": "Bearer " + API_KEY,
+  "Content-Type": "application/json",
+  "HTTP-Referer": window.location.href,
+  "X-Title": "BroAI"
+    }
       body: JSON.stringify({
-        model: "meta-llama/llama-3.1-8b-instruct",
+      model: "mistralai/mixtral-8x7b-instruct",
         messages: [
           { role: "user", content: text }
         ]
