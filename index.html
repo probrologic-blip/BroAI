@@ -1,10 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BroAI - Chat Assistant</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BroAI - Smart AI Assistant</title>
+
+<style>
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1220;
+  color: white;
+}
+
+/* ===== APP LAYOUT ===== */
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 260px;
+  background: #111827;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  border-right: 1px solid #1f2937;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #38bdf8;
+  margin-bottom: 20px;
+}
+
+.newchat {
+  background: #38bdf8;
+  color: black;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.history {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.bottom {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* ===== MAIN AREA ===== */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CHAT BOX */
+.chat {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* MESSAGES */
+.msg {
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  max-width: 70%;
+  line-height: 1.4;
+}
+
+.user {
+  background: #2563eb;
+  margin-left: auto;
+}
+
+.bot {
+  background: #1f2937;
+}
+
+/* INPUT AREA */
+.inputBox {
+  display: flex;
+  padding: 12px;
+  background: #111827;
+  border-top: 1px solid #1f2937;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  background: #0b1220;
+  color: white;
+}
+
+button {
+  margin-left: 10px;
+  padding: 12px 18px;
+  border: none;
+  background: #38bdf8;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* MOBILE */
+@media(max-width: 768px){
+  .sidebar { display: none; }
+}
+</style>
 </head>
 
 <body>
@@ -13,26 +132,31 @@
 
   <!-- SIDEBAR -->
   <div class="sidebar">
-    <h2>BroAI</h2>
+    <div>
+      <div class="logo">🚀 BroAI</div>
+      <button class="newchat" onclick="newChat()">+ New Chat</button>
 
-    <button onclick="newChat()">+ New Chat</button>
-
-    <div class="history">
-      <p>Welcome Chat</p>
+      <div class="history">
+        <p>• Your Chats</p>
+      </div>
     </div>
 
     <div class="bottom">
-      <p>User</p>
+      Logged in User
     </div>
   </div>
 
   <!-- MAIN -->
   <div class="main">
 
+    <!-- CHAT -->
     <div class="chat" id="chatBox">
-      <div class="msg bot">Hi 👋 I am BroAI, how can I help you?</div>
+      <div class="msg bot">
+        👋 Hi! I am BroAI. Ask me anything.
+      </div>
     </div>
 
+    <!-- INPUT -->
     <div class="inputBox">
       <input id="input" type="text" placeholder="Message BroAI...">
       <button onclick="sendMsg()">Send</button>
@@ -43,5 +167,6 @@
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
