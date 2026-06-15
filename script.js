@@ -26,7 +26,7 @@ async function sendMsg() {
   try {
     let res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
-    headers: {
+headers: {
   "Authorization": "Bearer " + API_KEY,
   "Content-Type": "application/json",
   "HTTP-Referer": window.location.href,
