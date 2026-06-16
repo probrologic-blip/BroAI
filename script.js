@@ -1,61 +1,93 @@
-const API_KEY = "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";
-async function sendMsg() {
-  let input = document.getElementById("input");
-  let text = input.value.trim();
+// BroAI Premium Script
 
-  if (text === "") return;
+document.addEventListener("DOMContentLoaded", () => {
 
-  let chatBox = document.getElementById("chatBox");
+    console.log("BroAI Loaded Successfully 🚀");
 
-  // USER MESSAGE
-  let userMsg = document.createElement("div");
-  userMsg.className = "msg user";
-  userMsg.innerText = text;
-  chatBox.appendChild(userMsg);
+    // Smooth Scroll
 
-  input.value = "";
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
 
-  // BOT MESSAGE
-  let botMsg = document.createElement("div");
-  botMsg.className = "msg bot";
-  botMsg.innerText = "Thinking...";
-  chatBox.appendChild(botMsg);
+            const target = document.querySelector(this.getAttribute("href"));
 
-  chatBox.scrollTop = chatBox.scrollHeight;
-
-  try {
-    let res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-headers: {
-  "Authorization": "Bearer " + API_KEY,
-  "Content-Type": "application/json",
-  "HTTP-Referer": window.location.href,
-  "X-Title": "BroAI"
-    }
-      body: JSON.stringify({
-      model: "mistralai/mixtral-8x7b-instruct",
-        messages: [
-          { role: "user", content: text }
-        ]
-      })
+            if(target){
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        });
     });
 
-    let data = await res.json();
+});
 
-    console.log(data);
+// Scroll Animation
 
-    if (data.error) {
-      botMsg.innerText = "Error: " + data.error.message;
-    } else {
-      botMsg.innerText = data.choices[0].message.content;
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+});
+
+document.querySelectorAll(
+'.feature-card, .market-card, .price-card, .testimonial-card'
+).forEach(el => {
+
+    observer.observe(el);
+
+});
+
+// Navbar Shadow
+
+window.addEventListener("scroll", () => {
+
+    const navbar = document.querySelector(".navbar");
+
+    if(window.scrollY > 50){
+
+        navbar.style.boxShadow =
+        "0 5px 25px rgba(0,0,0,.3)";
+
+    }
+    else{
+
+        navbar.style.boxShadow = "none";
+
     }
 
-  } catch (err) {
-    botMsg.innerText = "Network error. Check API key or internet.";
-  }
-}
+});
 
-function newChat() {
-  document.getElementById("chatBox").innerHTML =
-    '<div class="msg bot">New chat started 🚀</div>';
+// Button Click Effects
+
+document.querySelectorAll("button").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        btn.style.transform = "scale(.95)";
+
+        setTimeout(() => {
+
+            btn.style.transform = "scale(1)";
+
+        },150);
+
+    });
+
+});
+
+// Future Notification
+
+function showComingSoon(){
+
+    alert("🚀 Feature Coming Soon In BroAI Pro!");
+
 }
