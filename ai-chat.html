@@ -39,50 +39,51 @@
     </div>
 
 </div>
-
 <script>
 
 function sendMessage(){
 
-    let input =
-    document.getElementById("userInput");
+let input =
+document.getElementById("userInput");
 
-    let chatBox =
-    document.getElementById("chat-box");
+let chatBox =
+document.getElementById("chat-box");
 
-    if(input.value.trim() === "")
-    return;
+if(input.value.trim() === ""){
+return;
+}
 
-    let userMsg =
-    document.createElement("div");
+let userMsg =
+document.createElement("div");
 
-    userMsg.className =
-    "user-message";
+userMsg.className =
+"user-message";
 
-    userMsg.innerText =
-    input.value;
+userMsg.innerText =
+input.value;
 
-    chatBox.appendChild(userMsg);
+chatBox.appendChild(userMsg);
 
-    let botMsg =
-    document.createElement("div");
+let botMsg =
+document.createElement("div");
 
-    botMsg.className =
-    "bot-message";
+botMsg.className =
+"bot-message";
 
-    botMsg.innerText =
-    "BroAI Demo Response: " + input.value;
+botMsg.innerText =
+"BroAI Demo Response: " + input.value;
 
-    chatBox.appendChild(botMsg);
+chatBox.appendChild(botMsg);
 
-    input.value = "";
+input.value = "";
 
-    chatBox.scrollTop =
-    chatBox.scrollHeight;
+chatBox.scrollTop =
+chatBox.scrollHeight;
 
 }
 
 </script>
+
 
 </body>
 </html>
