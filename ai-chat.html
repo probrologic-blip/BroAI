@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BroAI Chat</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="chat-container">
+
+    <div class="chat-header">
+        <h2>🤖 BroAI Assistant</h2>
+        <a href="dashboard.html">⬅ Dashboard</a>
+    </div>
+
+    <div id="chat-box" class="chat-box">
+
+        <div class="bot-message">
+            Hello! Welcome to BroAI 🚀
+        </div>
+
+    </div>
+
+    <div class="chat-input">
+
+        <input
+        type="text"
+        id="userInput"
+        placeholder="Type your message..."
+        >
+
+        <button onclick="sendMessage()">
+            Send
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+    let input =
+    document.getElementById("userInput");
+
+    let chatBox =
+    document.getElementById("chat-box");
+
+    if(input.value.trim() === "")
+    return;
+
+    let userMsg =
+    document.createElement("div");
+
+    userMsg.className =
+    "user-message";
+
+    userMsg.innerText =
+    input.value;
+
+    chatBox.appendChild(userMsg);
+
+    let botMsg =
+    document.createElement("div");
+
+    botMsg.className =
+    "bot-message";
+
+    botMsg.innerText =
+    "BroAI Demo Response: " + input.value;
+
+    chatBox.appendChild(botMsg);
+
+    input.value = "";
+
+    chatBox.scrollTop =
+    chatBox.scrollHeight;
+
+}
+
+</script>
+
+</body>
+</html>
