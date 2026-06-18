@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BroAI Images</title><link rel="stylesheet" href="style.css"><style>
+
+.images-container{
+max-width:1100px;
+margin:auto;
+padding:30px;
+}
+
+.images-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.images-header a{
+color:#8b5cf6;
+text-decoration:none;
+font-weight:bold;
+}
+
+.generator-box{
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+margin-bottom:25px;
+}
+
+.generator-box textarea{
+width:100%;
+height:120px;
+padding:15px;
+border:none;
+border-radius:10px;
+margin-top:15px;
+margin-bottom:15px;
+}
+
+.generate-btn{
+background:#8b5cf6;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.image-result{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.image-result img{
+width:100%;
+max-width:700px;
+border-radius:15px;
+}
+
+</style></head><body><div class="images-container"><div class="images-header">
+<h1>🎨 AI Image Generator</h1>
+<a href="dashboard.html">⬅ Dashboard</a>
+</div><div class="generator-box"><h2>Enter Image Prompt</h2><textarea id="promptInput"
+placeholder="Example: A futuristic city at sunset, cinematic lighting">
+</textarea><button class="generate-btn"
+onclick="generateImage()">
+Generate Image
+</button>
+
+</div><div class="image-result"><h2>Generated Image</h2><img
+id="resultImage"
+src="https://picsum.photos/800/500"
+alt="Generated Image">
+
+</div></div><script>
+
+function generateImage(){
+
+let prompt =
+document.getElementById("promptInput").value;
+
+if(prompt.trim() === ""){
+alert("Please enter a prompt");
+return;
+}
+
+document.getElementById("resultImage").src =
+"https://picsum.photos/800/500?random=" + Math.random();
+
+}
+
+</script></body>
+</html>
