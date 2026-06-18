@@ -1,109 +1,24 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html><html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BroAI Chat</title><link rel="stylesheet" href="style.css"><style>
-.chat-container{
-max-width:900px;
-margin:20px auto;
-padding:20px;
-}
-
-.chat-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-}
-
-.chat-box{
-height:400px;
-overflow-y:auto;
-border:1px solid #444;
-padding:15px;
-border-radius:10px;
-margin-bottom:15px;
-}
-
-.bot-message{
-background:#222;
-padding:10px;
-margin:10px 0;
-border-radius:8px;
-}
-
-.user-message{
-background:#6c63ff;
-padding:10px;
-margin:10px 0;
-border-radius:8px;
-text-align:right;
-}
-
-.chat-input{
-display:flex;
-gap:10px;
-}
-
-.chat-input input{
-flex:1;
-padding:12px;
-border-radius:8px;
-border:none;
-}
-
-.chat-input button{
-padding:12px 20px;
-cursor:pointer;
-}
-</style></head>
-<body><div class="chat-container"><div class="chat-header">
-<h2>🤖 BroAI Assistant</h2>
-<a href="dashboard.html">⬅ Dashboard</a>
-</div><div id="chat-box" class="chat-box"><div class="bot-message">
-Hello! Welcome to BroAI 🚀
-</div></div><div class="chat-input"><input
-type="text"
-id="userInput"
-placeholder="Type your message..."
-
-«»
-
-<button onclick="sendMessage()">
-Send
-</button></div></div><script>
-
+<title>BroAI Chat</title>
+</head><body style="background:#0f172a;color:white;font-family:Arial;padding:20px;"><h2>🤖 BroAI Assistant</h2><input type="text" id="userInput" placeholder="Type message">
+<button onclick="sendMessage()">Send</button><div id="chat-box" style="margin-top:20px;"></div><script>
 function sendMessage() {
 
-let input = document.getElementById("userInput");
-let chatBox = document.getElementById("chat-box");
+var input = document.getElementById("userInput");
+var chatBox = document.getElementById("chat-box");
 
-if(input.value.trim() === ""){
+if (input.value === "") {
 return;
 }
 
-let userMsg = document.createElement("div");
-userMsg.className = "user-message";
-userMsg.innerText = input.value;
-chatBox.appendChild(userMsg);
+chatBox.innerHTML += "<p><b>You:</b> " + input.value + "</p>";
 
-let botMsg = document.createElement("div");
-botMsg.className = "bot-message";
-botMsg.innerText = "BroAI Demo Response: " + input.value;
-chatBox.appendChild(botMsg);
+chatBox.innerHTML += "<p><b>Bot:</b> Demo Response - " + input.value + "</p>";
 
 input.value = "";
-
-chatBox.scrollTop = chatBox.scrollHeight;
 }
-
-document.getElementById("userInput").addEventListener("keypress", function(event){
-
-if(event.key === "Enter"){
-sendMessage();
-}
-
-});
-
 </script></body>
 </html>
