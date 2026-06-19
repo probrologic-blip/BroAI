@@ -48,8 +48,25 @@ text-decoration:none;
 
 </style></head><body><div class="auth-container"><h1>🔐 Login</h1><input type="email" placeholder="Email"><input type="password" placeholder="Password"><button class="auth-btn">
 Login
-</button><div class="auth-link">
+<button class="auth-btn" onclick="loginUser()">
+Login
+</button>
 Don't have an account?
 <a href="signup.html">Sign Up</a>
-</div></div></body>
+</div>
+</div>
+  
+<script>
+
+function loginUser(){
+
+localStorage.setItem("broai_user","loggedin");
+
+window.location.href="dashboard.html";
+
+}
+
+</script>
+  
+</body>
 </html>
