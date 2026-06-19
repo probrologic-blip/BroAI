@@ -48,9 +48,7 @@ text-decoration:none;
 
 </style></head><body><div class="auth-container"><h1>🔐 Login</h1><input type="email" placeholder="Email"><input type="password" placeholder="Password"><button class="auth-btn">
 Login
-<button class="auth-btn" onclick="loginUser(if(localStorage.getItem("broai_credits") === null){
-localStorage.setItem("broai_credits","100");
-  })">
+<button class="auth-btn" onclick="loginUser()
 Login
 </button>
 Don't have an account?
@@ -60,7 +58,9 @@ Don't have an account?
   
 <script>
 
-function loginUser(){
+function loginUser(if(localStorage.getItem("broai_credits") === null){
+localStorage.setItem("broai_credits","100");
+}){
 
 localStorage.setItem("broai_user","loggedin");
 
