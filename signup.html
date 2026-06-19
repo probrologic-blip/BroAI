@@ -48,8 +48,25 @@ text-decoration:none;
 
 </style></head><body><div class="auth-container"><h1>🚀 Create Account</h1><input type="text" placeholder="Full Name"><input type="email" placeholder="Email"><input type="password" placeholder="Password"><button class="auth-btn">
 Create Account
-</button><div class="auth-link">
+<button class="auth-btn" onclick="signupUser()">
+Create Account
+</button>
 Already have an account?
 <a href="login.html">Login</a>
-</div></div></body>
+</div>
+</div>
+ 
+  <script>
+
+function signupUser(){
+
+localStorage.setItem("broai_user","loggedin");
+
+window.location.href="dashboard.html";
+
+}
+
+</script>
+
+</body>
 </html>
