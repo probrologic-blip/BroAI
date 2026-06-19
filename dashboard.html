@@ -1,46 +1,95 @@
-<div class="cards"><div class="card">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BroAI Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+<div class="sidebar">
+
+<h2>BroAI</h2>
+
+<ul>
+<li>🏠 Dashboard</li>
+<li><a href="ai-chat.html">🤖 AI Chat</a></li>
+<li><a href="ai-images.html">🎨 AI Images</a></li>
+<li><a href="prompt-store.html">📝 Prompt Store</a></li>
+<li onclick="logoutUser()">🚪 Logout</li>
+</ul>
+
+</div>
+
+<div class="main-content">
+
+<div class="topbar">
+<h1>Welcome Back</h1>
+
+<div class="credits">
+Credits: <span id="creditCount">100</span>
+</div>
+</div>
+
+<div class="cards">
+
+<div class="card">
 <h3>AI Chat</h3>
 <p>Start chatting with AI assistant.</p>
 <a href="ai-chat.html">
 <button>Open</button>
 </a>
-</div><div class="card">
+</div>
+
+<div class="card">
 <h3>AI Images</h3>
 <p>Create AI images from prompts.</p>
 <a href="ai-images.html">
 <button>Open</button>
 </a>
-</div><div class="card">
-<h3>AI Video</h3>
-<p>Generate AI videos.</p>
-<a href="ai-video.html">
-<button>Open</button>
-</a>
-</div><div class="card">
+</div>
+
+<div class="card">
 <h3>Prompt Store</h3>
 <p>Free & Premium AI prompts.</p>
 <a href="prompt-store.html">
 <button>Open</button>
 </a>
-</div><div class="card">
+</div>
+
+<div class="card">
 <h3>YouTube Tools</h3>
 <p>Scripts, titles, tags & ideas.</p>
-<a href="#">
-<button>Open</button>
-</a>
-</div><div class="card">
-<h3>Credits</h3>
-<p>Manage your AI credits.</p>
-<a href="#">
-<button>Open</button>
-</a>
-</div></div>
+<button>Coming Soon</button>
+</div>
+
+</div>
+
+<div class="activity">
+<h2>Recent Activity</h2>
+<p>No activity yet.</p>
+</div>
+
+</div>
+
+</div>
+
 <script>
 
 if(localStorage.getItem("broai_user") !== "loggedin"){
+window.location.href = "login.html";
+}
 
-window.location.href="login.html";
-
+function logoutUser(){
+localStorage.removeItem("broai_user");
+window.location.href = "index.html";
 }
 
 </script>
+
+</body>
+</html>
