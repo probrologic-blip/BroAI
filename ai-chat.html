@@ -69,9 +69,7 @@ placeholder="Type your message..."
 
 «»
 
-<button onclick="sendMessage(let credits = parseInt(localStorage.getItem("broai_credits") || 100);
-
-if(credits <= 0){
+<button onclick="sendMessage(){
 alert("No Credits Remaining");
 return;
 }
@@ -82,7 +80,16 @@ localStorage.setItem("broai_credits", credits);)">
 Send
 </button></div></div><script>
 
-function sendMessage() {
+function sendMessage(let credits = parseInt(localStorage.getItem("broai_credits") || 100);
+
+if(credits <= 0){
+alert("No Credits Remaining");
+return;
+}
+
+credits--;
+
+localStorage.setItem("broai_credits", credits);) {
 
 let input = document.getElementById("userInput");
 let chatBox = document.getElementById("chat-box");
