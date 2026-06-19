@@ -69,7 +69,16 @@ placeholder="Type your message..."
 
 «»
 
-<button onclick="sendMessage()">
+<button onclick="sendMessage(let credits = parseInt(localStorage.getItem("broai_credits") || 100);
+
+if(credits <= 0){
+alert("No Credits Remaining");
+return;
+}
+
+credits--;
+
+localStorage.setItem("broai_credits", credits);)">
 Send
 </button></div></div><script>
 
