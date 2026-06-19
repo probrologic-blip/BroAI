@@ -79,7 +79,16 @@ alt="Generated Image">
 
 </div></div><script>
 
-function generateImage(){
+function generateImage(let credits = parseInt(localStorage.getItem("broai_credits") || 100);
+
+if(credits <= 0){
+alert("No Credits Remaining");
+return;
+}
+
+credits--;
+
+localStorage.setItem("broai_credits", credits);){
 
 let prompt =
 document.getElementById("promptInput").value;
