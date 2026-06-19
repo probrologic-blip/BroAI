@@ -84,12 +84,15 @@ if(localStorage.getItem("broai_user") !== "loggedin"){
 window.location.href = "login.html";
 }
 
+let credits = localStorage.getItem("broai_credits") || 100;
+
+document.getElementById("creditCount").innerText = credits;
+
 function logoutUser(){
 localStorage.removeItem("broai_user");
 window.location.href = "index.html";
 }
 
 </script>
-
 </body>
 </html>
