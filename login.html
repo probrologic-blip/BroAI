@@ -48,7 +48,9 @@ text-decoration:none;
 
 </style></head><body><div class="auth-container"><h1>🔐 Login</h1><input type="email" placeholder="Email"><input type="password" placeholder="Password"><button class="auth-btn">
 Login
-<button class="auth-btn" onclick="loginUser()">
+<button class="auth-btn" onclick="loginUser(if(localStorage.getItem("broai_credits") === null){
+localStorage.setItem("broai_credits","100");
+  })">
 Login
 </button>
 Don't have an account?
