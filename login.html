@@ -1,9 +1,13 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BroAI Login</title>
-<link rel="stylesheet" href="style.css"><style>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
 
 .auth-container{
 max-width:450px;
@@ -34,6 +38,7 @@ color:white;
 border:none;
 border-radius:10px;
 cursor:pointer;
+font-size:16px;
 }
 
 .auth-link{
@@ -46,21 +51,38 @@ color:#8b5cf6;
 text-decoration:none;
 }
 
-</style></head><body><div class="auth-container"><h1>🔐 Login</h1><input type="email" placeholder="Email"><input type="password" placeholder="Password"><button class="auth-btn">
-Login
-<button class="auth-btn" onclick="loginUser()
+</style>
+
+</head>
+
+<body>
+
+<div class="auth-container">
+
+<h1>🔐 Login</h1>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button class="auth-btn" onclick="loginUser()">
 Login
 </button>
+
+<div class="auth-link">
 Don't have an account?
 <a href="signup.html">Sign Up</a>
 </div>
+
 </div>
-  
+
 <script>
 
-function loginUser(if(localStorage.getItem("broai_credits") === null){
+function loginUser(){
+
+if(localStorage.getItem("broai_credits") === null){
 localStorage.setItem("broai_credits","100");
-}){
+}
 
 localStorage.setItem("broai_user","loggedin");
 
@@ -69,6 +91,6 @@ window.location.href="dashboard.html";
 }
 
 </script>
-  
+
 </body>
 </html>
