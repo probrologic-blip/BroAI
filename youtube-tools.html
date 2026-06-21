@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BroAI YouTube Tools</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.tools-container{
+max-width:1000px;
+margin:auto;
+padding:30px;
+}
+
+.tools-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.tools-header a{
+color:#8b5cf6;
+text-decoration:none;
+font-weight:bold;
+}
+
+.tool-card{
+background:#1e293b;
+padding:25px;
+border-radius:15px;
+margin-bottom:25px;
+}
+
+.tool-card textarea,
+.tool-card input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+margin-top:10px;
+margin-bottom:15px;
+}
+
+.tool-card button{
+background:#8b5cf6;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.output{
+margin-top:15px;
+background:#334155;
+padding:15px;
+border-radius:10px;
+white-space:pre-line;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="tools-container">
+
+<div class="tools-header">
+<h1>🎬 YouTube Tools</h1>
+<a href="dashboard.html">⬅ Dashboard</a>
+</div>
+
+<!-- TITLE GENERATOR -->
+
+<div class="tool-card">
+
+<h2>🔥 Title Generator</h2>
+
+<input
+type="text"
+id="titleTopic"
+placeholder="Enter video topic"
+>
+
+<button onclick="generateTitle()">
+Generate Title
+</button>
+
+<div id="titleOutput" class="output">
+Your generated title will appear here...
+</div>
+
+</div>
+
+<!-- TAG GENERATOR -->
+
+<div class="tool-card">
+
+<h2>🏷 Tags Generator</h2>
+
+<input
+type="text"
+id="tagTopic"
+placeholder="Enter video topic"
+>
+
+<button onclick="generateTags()">
+Generate Tags
+</button>
+
+<div id="tagOutput" class="output">
+Your tags will appear here...
+</div>
+
+</div>
+
+<!-- SCRIPT IDEA -->
+
+<div class="tool-card">
+
+<h2>💡 Script Ideas</h2>
+
+<input
+type="text"
+id="ideaTopic"
+placeholder="Enter niche/topic"
+>
+
+<button onclick="generateIdea()">
+Generate Ideas
+</button>
+
+<div id="ideaOutput" class="output">
+Your ideas will appear here...
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function generateTitle(){
+
+let topic =
+document.getElementById("titleTopic").value;
+
+if(topic.trim()===""){
+alert("Enter a topic");
+return;
+}
+
+document.getElementById("titleOutput").innerText =
+"🔥 " + topic + " Secrets Nobody Tells You\n\n" +
+"🚀 How To Master " + topic + " Fast\n\n" +
+"😱 Biggest Mistakes In " + topic;
+
+}
+
+function generateTags(){
+
+let topic =
+document.getElementById("tagTopic").value;
+
+if(topic.trim()===""){
+alert("Enter a topic");
+return;
+}
+
+document.getElementById("tagOutput").innerText =
+topic + ", " +
+topic + " tips, " +
+topic + " tutorial, " +
+topic + " guide, " +
+topic + " beginner, " +
+topic + " 2026, youtube growth";
+
+}
+
+function generateIdea(){
+
+let topic =
+document.getElementById("ideaTopic").value;
+
+if(topic.trim()===""){
+alert("Enter a topic");
+return;
+}
+
+document.getElementById("ideaOutput").innerText =
+"1. Top 10 " + topic + " Mistakes\n\n" +
+"2. Beginner Guide To " + topic + "\n\n" +
+"3. How I Learned " + topic + "\n\n" +
+"4. Hidden Secrets Of " + topic + "\n\n" +
+"5. Best Tools For " + topic;
+
+}
+
+</script>
+
+</body>
+</html>
