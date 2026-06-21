@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BroAI Profile</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.profile-container{
+max-width:700px;
+margin:40px auto;
+padding:30px;
+background:#1e293b;
+border-radius:20px;
+}
+
+.profile-header{
+text-align:center;
+margin-bottom:30px;
+}
+
+.profile-avatar{
+font-size:80px;
+margin-bottom:10px;
+}
+
+.profile-card{
+background:#334155;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+.profile-card h3{
+color:#8b5cf6;
+margin-bottom:10px;
+}
+
+.back-btn{
+display:inline-block;
+margin-top:20px;
+background:#8b5cf6;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
+color:white;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="profile-container">
+
+<div class="profile-header">
+<div class="profile-avatar">👤</div>
+<h1 id="userName">BroAI User</h1>
+</div>
+
+<div class="profile-card">
+<h3>Email</h3>
+<p id="userEmail">user@example.com</p>
+</div>
+
+<div class="profile-card">
+<h3>Credits</h3>
+<p id="userCredits">100</p>
+</div>
+
+<div class="profile-card">
+<h3>Status</h3>
+<p>Free Member</p>
+</div>
+
+<div class="profile-card">
+<h3>Website</h3>
+<p>BroAI Version 1</p>
+</div>
+
+<a href="dashboard.html" class="back-btn">
+⬅ Back To Dashboard
+</a>
+
+</div>
+
+<script>
+
+let credits =
+localStorage.getItem("broai_credits") || 100;
+
+document.getElementById("userCredits").innerText =
+credits;
+
+</script>
+
+</body>
+</html>
