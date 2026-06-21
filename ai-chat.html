@@ -3,6 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BroAI Chat</title><link rel="stylesheet" href="style.css"><style>
+
 .chat-container{
 max-width:900px;
 margin:20px auto;
@@ -16,6 +17,11 @@ align-items:center;
 margin-bottom:20px;
 }
 
+.chat-header a{
+color:#8b5cf6;
+text-decoration:none;
+}
+
 .chat-box{
 height:400px;
 overflow-y:auto;
@@ -23,6 +29,7 @@ border:1px solid #444;
 padding:15px;
 border-radius:10px;
 margin-bottom:15px;
+background:#1e293b;
 }
 
 .bot-message{
@@ -55,9 +62,13 @@ border:none;
 .chat-input button{
 padding:12px 20px;
 cursor:pointer;
+background:#8b5cf6;
+color:white;
+border:none;
+border-radius:8px;
 }
-</style></head>
-<body><div class="chat-container"><div class="chat-header">
+
+</style></head><body><div class="chat-container"><div class="chat-header">
 <h2>🤖 BroAI Assistant</h2>
 <a href="dashboard.html">⬅ Dashboard</a>
 </div><div id="chat-box" class="chat-box"><div class="bot-message">
@@ -69,27 +80,18 @@ placeholder="Type your message..."
 
 «»
 
-<button onclick="sendMessage(){
-alert("No Credits Remaining");
-return;
-}
-
-credits--;
-
-localStorage.setItem("broai_credits", credits);)">
+<button onclick="sendMessage()">
 Send
 </button></div></div><script>
 
-function sendMessage(let credits = parseInt(localStorage.getItem("broai_credits") || 100);
+function sendMessage(){
+
+let credits = parseInt(localStorage.getItem("broai_credits") || 100);
 
 if(credits <= 0){
 alert("No Credits Remaining");
 return;
 }
-
-credits--;
-
-localStorage.setItem("broai_credits", credits);) {
 
 let input = document.getElementById("userInput");
 let chatBox = document.getElementById("chat-box");
@@ -97,6 +99,9 @@ let chatBox = document.getElementById("chat-box");
 if(input.value.trim() === ""){
 return;
 }
+
+credits--;
+localStorage.setItem("broai_credits", credits);
 
 let userMsg = document.createElement("div");
 userMsg.className = "user-message";
@@ -111,6 +116,7 @@ chatBox.appendChild(botMsg);
 input.value = "";
 
 chatBox.scrollTop = chatBox.scrollHeight;
+
 }
 
 document.getElementById("userInput").addEventListener("keypress", function(event){
