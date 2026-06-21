@@ -98,6 +98,10 @@ cursor:pointer;
 </div></div></div><script>
 
 function unlockPrompt(){
+  localStorage.setItem(
+"broai_activity",
+"🔓 Premium Prompt Unlocked"
+);
 
 let credits = parseInt(localStorage.getItem("broai_credits") || 100);
 
