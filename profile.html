@@ -89,13 +89,16 @@ color:white;
 
 <script>
 
-let credits =
-localStorage.getItem("broai_credits") || 100;
+document.getElementById("userName").innerText =
+localStorage.getItem("broai_name") || "BroAI User";
+
+document.getElementById("userEmail").innerText =
+localStorage.getItem("broai_email") || "No Email";
 
 document.getElementById("userCredits").innerText =
-credits;
+localStorage.getItem("broai_credits") || "100";
 
 </script>
-
+  
 </body>
 </html>
