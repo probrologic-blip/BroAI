@@ -80,45 +80,6 @@ alt="Generated Image">
 </div>
 </div>
   
-  <script>
-
-function generateImage(){
-  localStorage.setItem(
-"broai_activity",
-"🎨 Image Generated"
-);
-
-let credits = parseInt(localStorage.getItem("broai_credits") || 100);
-
-if(credits <= 0){
-
-alert("No Credits Remaining");
-
-return;
-
-}
-
-credits--;
-
-localStorage.setItem("broai_credits", credits);
-
-let prompt =
-document.getElementById("promptInput").value;
-
-if(prompt.trim() === ""){
-
-alert("Please enter a prompt");
-
-return;
-
-}
-
-document.getElementById("resultImage").src =
-"https://picsum.photos/800/500?random=" + Math.random();
-
-alert("Image Generated! Remaining Credits: " + credits);
-
-}
 <script src="script.js"></script>  
 </body>
 </html>
