@@ -149,14 +149,21 @@ chatBox.appendChild(userMsg);
 
 let botMsg=document.createElement("div");
 botMsg.className="bot-message";
-botMsg.innerHTML="⏳ BroAI is thinking...";
+botMsg.className="loading";
+
+botMsg.innerHTML="🤖 BroAI is thinking...";
 chatBox.appendChild(botMsg);
 
 chatBox.scrollTop=chatBox.scrollHeight;
 
 setTimeout(function(){
 
-botMsg.innerHTML="🤖 Demo Response: " + input.value;
+botMsg.className="bot-message";
+
+typeReply(
+botMsg,
+"🤖 Demo Response: " + input.value
+);
 
 },700);
 
