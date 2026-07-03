@@ -1,93 +1,118 @@
-// BroAI Premium Script
+// ======================
+// BroAI Script v1.0
+// ======================
 
-document.addEventListener("DOMContentLoaded", () => {
+// Login Check
+if (
+  location.pathname.includes("dashboard") ||
+  location.pathname.includes("ai-chat") ||
+  location.pathname.includes("ai-images") ||
+  location.pathname.includes("prompt-store") ||
+  location.pathname.includes("youtube-tools") ||
+  location.pathname.includes("profile") ||
+  location.pathname.includes("settings")
+) {
+  if (localStorage.getItem("broai_user") !== "loggedin") {
+    window.location.href = "login.html";
+  }
+}
 
-    console.log("BroAI Loaded Successfully 🚀");
+// Credits
+let credits = parseInt(localStorage.getItem("broai_credits") || 100);
 
-    // Smooth Scroll
+function updateCredits() {
+  localStorage.setItem("broai_credits", credits);
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
+  let creditBox = document.getElementById("creditCount");
 
-            const target = document.querySelector(this.getAttribute("href"));
+  if (creditBox) {
+    creditBox.innerText = credits;
+  }
+}
 
-            if(target){
-                target.scrollIntoView({
-                    behavior: "smooth"
-                });
-            }
-        });
-    });
+updateCredits();
 
-});
+// Logout
+function logoutUser() {
+  localStorage.removeItem("broai_user");
+  window.location.href = "index.html";
+}
 
-// Scroll Animation
+// Activity
+function saveActivity(text) {
 
-const observer = new IntersectionObserver(entries => {
+  localStorage.setItem("broai_activity", text);
 
-    entries.forEach(entry => {
+  let box = document.getElementById("activityBox");
 
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-});
-
-document.querySelectorAll(
-'.feature-card, .market-card, .price-card, .testimonial-card'
-).forEach(el => {
-
-    observer.observe(el);
-
-});
-
-// Navbar Shadow
-
-window.addEventListener("scroll", () => {
-
-    const navbar = document.querySelector(".navbar");
-
-    if(window.scrollY > 50){
-
-        navbar.style.boxShadow =
-        "0 5px 25px rgba(0,0,0,.3)";
-
-    }
-    else{
-
-        navbar.style.boxShadow = "none";
-
-    }
-
-});
-
-// Button Click Effects
-
-document.querySelectorAll("button").forEach(btn => {
-
-    btn.addEventListener("click", () => {
-
-        btn.style.transform = "scale(.95)";
-
-        setTimeout(() => {
-
-            btn.style.transform = "scale(1)";
-
-        },150);
-
-    });
-
-});
-
-// Future Notification
-
-function showComingSoon(){
-
-    alert("🚀 Feature Coming Soon In BroAI Pro!");
+  if (box) {
+    box.innerText = text;
+  }
 
 }
+
+// Load Activity
+window.onload = function () {
+
+  updateCredits();
+
+  let activity =
+    localStorage.getItem("broai_activity");
+
+  if (activity) {
+
+    let box =
+      document.getElementById("activityBox");
+
+    if (box) {
+      box.innerText = activity;
+    }
+
+  }
+
+};
+
+// Premium Prompt
+function unlockPrompt() {
+
+  alert("Premium Version Coming Soon 🚀");
+
+}
+
+// Profile
+function saveProfile() {
+
+  let name =
+    document.getElementById("name");
+
+  let email =
+    document.getElementById("email");
+
+  if (name)
+    localStorage.setItem("broai_name", name.value);
+
+  if (email)
+    localStorage.setItem("broai_email", email.value);
+
+  alert("Profile Saved");
+
+}
+
+// Load Profile
+window.addEventListener("load", () => {
+
+  let name =
+    document.getElementById("name");
+
+  let email =
+    document.getElementById("email");
+
+  if (name)
+    name.value =
+      localStorage.getItem("broai_name") || "";
+
+  if (email)
+    email.value =
+      localStorage.getItem("broai_email") || "";
+
+});
