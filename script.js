@@ -224,3 +224,26 @@ let img=document.getElementById("resultImage");
 img.src="https://picsum.photos/800/500?random="+Math.random();
 
 }
+// AI Typing Effect
+
+function typeReply(element,text){
+
+let i=0;
+
+element.innerHTML="";
+
+let timer=setInterval(function(){
+
+element.innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+
+clearInterval(timer);
+
+}
+
+},20);
+
+}
