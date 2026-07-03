@@ -81,26 +81,7 @@ Credits: <span id="creditCount">100</span>
 </div>
 
 </div>
-
-<script>
-
-if(localStorage.getItem("broai_user") !== "loggedin"){
-window.location.href = "login.html";
-}
-
-let credits = localStorage.getItem("broai_credits") || 100;
-
-document.getElementById("creditCount").innerText = credits;
-let activity = localStorage.getItem("broai_activity");
-
-if(activity){
-document.getElementById("activityBox").innerText = activity;
-}
-function logoutUser(){
-localStorage.removeItem("broai_user");
-window.location.href = "index.html";
-}
-
+  
 <script src="script.js"></script>  
 </body>
 </html>
