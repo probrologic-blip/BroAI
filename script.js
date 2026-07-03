@@ -116,3 +116,111 @@ window.addEventListener("load", () => {
       localStorage.getItem("broai_email") || "";
 
 });
+// ======================
+// AI CHAT
+// ======================
+
+function sendMessage() {
+
+let input = document.getElementById("userInput");
+let chatBox = document.getElementById("chat-box");
+
+if(!input || !chatBox) return;
+
+if(input.value.trim() === ""){
+return;
+}
+
+if(credits <= 0){
+alert("No Credits Remaining");
+return;
+}
+
+credits--;
+
+updateCredits();
+
+saveActivity("🤖 AI Chat Used");
+
+let userMsg = document.createElement("div");
+userMsg.className="user-message";
+userMsg.innerText=input.value;
+chatBox.appendChild(userMsg);
+
+let botMsg=document.createElement("div");
+botMsg.className="bot-message";
+botMsg.innerHTML="⏳ BroAI is thinking...";
+chatBox.appendChild(botMsg);
+
+chatBox.scrollTop=chatBox.scrollHeight;
+
+setTimeout(function(){
+
+botMsg.innerHTML="🤖 Demo Response: " + input.value;
+
+},700);
+
+input.value="";
+
+}
+
+// Enter Key
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+let input=document.getElementById("userInput");
+
+if(input){
+
+input.addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+
+sendMessage();
+
+}
+
+});
+
+}
+
+});
+
+
+// ======================
+// AI IMAGE
+// ======================
+
+function generateImage(){
+
+let prompt=document.getElementById("promptInput");
+
+if(!prompt) return;
+
+if(prompt.value.trim()==""){
+
+alert("Please enter prompt");
+
+return;
+
+}
+
+if(credits<=0){
+
+alert("No Credits Remaining");
+
+return;
+
+}
+
+credits--;
+
+updateCredits();
+
+saveActivity("🎨 Image Generated");
+
+let img=document.getElementById("resultImage");
+
+img.src="https://picsum.photos/800/500?random="+Math.random();
+
+}
