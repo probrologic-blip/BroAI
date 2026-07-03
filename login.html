@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+here<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-
 .auth-container{
 max-width:450px;
 margin:80px auto;
@@ -50,7 +49,6 @@ margin-top:15px;
 color:#8b5cf6;
 text-decoration:none;
 }
-
 </style>
 
 </head>
@@ -80,7 +78,7 @@ Don't have an account?
 
 function loginUser(){
 
-if(localStorage.getItem("broai_credits") === null){
+if(localStorage.getItem("broai_credits")==null){
 localStorage.setItem("broai_credits","100");
 }
 
@@ -89,6 +87,8 @@ localStorage.setItem("broai_user","loggedin");
 window.location.href="dashboard.html";
 
 }
+
+</script>
 
 <script src="script.js"></script>
 
