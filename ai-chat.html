@@ -82,51 +82,8 @@ placeholder="Type your message..."
 
 <button onclick="sendMessage()">
 Send
-</button></div></div><script>
-
-function sendMessage(){
-
-let credits = parseInt(localStorage.getItem("broai_credits") || 100);
-
-if(credits <= 0){
-alert("No Credits Remaining");
-return;
-}
-
-let input = document.getElementById("userInput");
-let chatBox = document.getElementById("chat-box");
-
-if(input.value.trim() === ""){
-return;
-}
-
-credits--;
-localStorage.setItem("broai_credits", credits);
-
-let userMsg = document.createElement("div");
-userMsg.className = "user-message";
-userMsg.innerText = input.value;
-chatBox.appendChild(userMsg);
-
-let botMsg = document.createElement("div");
-botMsg.className = "bot-message";
-botMsg.innerText = "BroAI Demo Response: " + input.value;
-chatBox.appendChild(botMsg);
-
-input.value = "";
-
-chatBox.scrollTop = chatBox.scrollHeight;
-
-}
-
-document.getElementById("userInput").addEventListener("keypress", function(event){
-
-if(event.key === "Enter"){
-sendMessage();
-}
-
-});
-
+</button></div></div>
+  
 <script src="script.js"></script>
 </body>
 </html>
