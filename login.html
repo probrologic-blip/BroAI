@@ -1,96 +1,169 @@
-here<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BroAI Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+  <title>Login - BroAI</title>
 
-<style>
-.auth-container{
-max-width:450px;
-margin:80px auto;
-background:#1e293b;
-padding:30px;
-border-radius:15px;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-.auth-container h1{
-text-align:center;
-margin-bottom:25px;
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0b1220;
+      color: white;
+    }
 
-.auth-container input{
-width:100%;
-padding:14px;
-margin-bottom:15px;
-border:none;
-border-radius:10px;
-}
+    .login-form {
+      width: 90%;
+      max-width: 380px;
+      padding: 35px;
+      background: #111827;
+      border: 1px solid #263244;
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
 
-.auth-btn{
-width:100%;
-padding:14px;
-background:#8b5cf6;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-size:16px;
-}
+    .logo {
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
 
-.auth-link{
-text-align:center;
-margin-top:15px;
-}
+    .subtitle {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
 
-.auth-link a{
-color:#8b5cf6;
-text-decoration:none;
-}
-</style>
+    h2 {
+      text-align: center;
+      margin-bottom: 22px;
+    }
 
+    .field {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      background: #0b1220;
+      color: white;
+      outline: none;
+      font-size: 15px;
+    }
+
+    input:focus {
+      border-color: #38bdf8;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 10px;
+      background: #38bdf8;
+      color: #06111a;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .login-btn:hover {
+      opacity: 0.9;
+    }
+
+    .signup {
+      text-align: center;
+      margin-top: 22px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .signup a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="auth-container">
+  <form class="login-form">
 
-<h1>🔐 Login</h1>
+    <div class="logo">BroAI</div>
 
-<input type="email" id="email" placeholder="Email">
+    <p class="subtitle">
+      Your AI workspace
+    </p>
 
-<input type="password" id="password" placeholder="Password">
+    <h2>Welcome Back 👋</h2>
 
-<button class="auth-btn" onclick="loginUser()">
-Login
-</button>
+    <div class="field">
+      <label>Username</label>
+      <input
+        type="text"
+        placeholder="Enter your username"
+        required
+      >
+    </div>
 
-<div class="auth-link">
-Don't have an account?
-<a href="signup.html">Sign Up</a>
-</div>
+    <div class="field">
+      <label>Password</label>
+      <input
+        type="password"
+        placeholder="Enter your password"
+        required
+      >
+    </div>
 
-</div>
+    <button class="login-btn" type="submit">
+      Login to BroAI
+    </button>
 
-<script>
+    <p class="signup">
+      Don't have an account?
+      <a href="signup.html">Sign up</a>
+    </p>
 
-function loginUser(){
+    <a class="back" href="index.html">
+      ← Back to BroAI
+    </a>
 
-if(localStorage.getItem("broai_credits")==null){
-localStorage.setItem("broai_credits","100");
-}
-
-localStorage.setItem("broai_user","loggedin");
-
-window.location.href="dashboard.html";
-
-}
-
-</script>
-
-<script src="script.js"></script>
+  </form>
 
 </body>
 </html>
